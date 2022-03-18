@@ -1,0 +1,121 @@
+// Mi3Act2 - Primitive Pattern CHECKERBOARD_PATTERN
+
+#include <GL\glut.h>
+
+void display();
+void reshape(int,int);
+void init()
+{
+	glClearColor(0.0,0.0,0.0,1.0); //change background color 
+}
+int main(int argc,char**argv)
+{
+	glutInit(&argc,argv);
+	glutInitDisplayMode(GLUT_RGB); //set display rgb
+	glutInitWindowPosition(200,100); //position of program
+	glutInitWindowSize(400,400);  //window size
+	glutCreateWindow("Checker Board Pattern");  //window title
+	glutDisplayFunc(dis);  //allow to show void dis()
+	glutReshapeFunc(reshape);
+	init();
+
+	glutMainLoop();
+
+}
+void dis()
+{
+	glClear(GL_COLOR_BUFFER_BIT);
+	glLoadIdentity();
+
+	//draw
+	glBegin(GL_QUADS );
+
+	glVertex2f(-8.0,-2.0);
+	glVertex2f(-8.0,-4.0);
+	glVertex2f(-6.0,-4.0);
+	glVertex2f(-6.0,-2.0);
+
+	//square 2
+	glVertex2f(-6.0,0.0);
+	glVertex2f(-6.0,-2.0);
+	glVertex2f(-4.0,-2.0);
+	glVertex2f(-4.0,0.0);
+
+	//square 3
+	glVertex2f(-4.0,-2.0);
+	glVertex2f(-4.0,-4.0);
+	glVertex2f(-2.0,-4.0);
+	glVertex2f(-2.0,-2.0);
+
+	//square 4
+	glVertex2f(-2.0,0.0);
+	glVertex2f(-2.0,-2.0);
+	glVertex2f(0.0,0.-2);
+	glVertex2f(0.0,0.0);
+
+	//square 5
+	glVertex2f(-8.0,2.0);
+	glVertex2f(-8.0,0.0);
+	glVertex2f(-6.0,0.0);
+	glVertex2f(-6.0,2.0);
+
+	//square 6
+	glVertex2f(-4.0,2.0);
+	glVertex2f(-4.0,0.0);
+	glVertex2f(-2.0,0.0);
+	glVertex2f(-2.0,2.0);
+
+	//square 7
+	glVertex2f(-6.0,4.0);
+	glVertex2f(-6.0,2.0);
+	glVertex2f(-4.0,2.0);
+	glVertex2f(-4.0,4.0);
+	
+	//square 7
+	glVertex2f(-8.0,6.0);
+	glVertex2f(-8.0,4.0);
+	glVertex2f(-6.0,4.0);
+	glVertex2f(-6.0,6.0);
+	
+	//square 8
+	glVertex2f(-4.0,6.0);
+	glVertex2f(-4.0,4.0);
+	glVertex2f(-2.0,4.0);
+	glVertex2f(-2.0,6.0);
+
+	//square 9
+	glVertex2f(-2.0,4.0);
+	glVertex2f(-2.0,2.0);
+	glVertex2f(0.0,2.0);
+	glVertex2f(0.0,4.0);
+	
+	//square 10
+	glVertex2f(0.0,6.0);
+	glVertex2f(0.0,4.0);
+	glVertex2f(2.0,4.0);
+	glVertex2f(2.0,6.0);
+
+	//square 11
+	glVertex2f(0.0,2.0);
+	glVertex2f(0.0,0.0);
+	glVertex2f(2.0,0.0);
+	glVertex2f(2.0,2.0);
+
+	//square 12
+	glVertex2f(0.0,-2.0);
+	glVertex2f(0.,-4.0);
+	glVertex2f(2.0,-4.0);
+	glVertex2f(2.0,-2.0);
+	
+	glEnd();
+	
+	glFlush();
+}
+void reshape(int w,int h)
+{
+	glViewport(0,0,(GLsizei)w,(GLsizei)h);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluOrtho2D(-9,9,-9,9);
+	glMatrixMode(GL_MODELVIEW);
+}
